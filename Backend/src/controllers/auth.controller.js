@@ -38,7 +38,8 @@ export const login = async (req, res) => {
   
     try {
 
-        const userFound = await User.findOne({email});
+        const userFound = await User.findOne({email:email});
+        console.log(userFound)
         if (!userFound) return res.status(400).json({message:"Usuario no encontrado"})
 
       const isMatch = await bcrypt.compare(password, userFound.password); //va a verificar si la contraseña exista en la base de datos para poder ingresar al login
