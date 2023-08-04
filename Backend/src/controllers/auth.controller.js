@@ -5,7 +5,7 @@ import bcrypt from "bcryptjs";
 // SignUp
 export const signup = async (req, res) => {
   const { email, password, firstname, lastname } = req.body;
-  console.log(email, password, firstname, lastname);
+  console.log(email, password, firstname, lastname);//
 
   try {
     const passwordHashs = await bcrypt.hash(password, 10); //encriptacion de la contaseña al usar hash para que sean aleatorios los caracteres
