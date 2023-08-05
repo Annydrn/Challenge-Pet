@@ -2,6 +2,8 @@ import { createAccessToken } from "../libs/jwt.js";
 import userModel from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 
+
+
 // SignUp
 export const signup = async (req, res) => {
   const { email, password, firstname, lastname } = req.body;
@@ -38,7 +40,7 @@ export const login = async (req, res) => {
   
     try {
 
-        const userFound = await User.findOne({email:email});
+        const userFound = await userModel.findOne({email:email});
         console.log(userFound)
         if (!userFound) return res.status(400).json({message:"Usuario no encontrado"})
 
@@ -62,3 +64,27 @@ export const login = async (req, res) => {
     }
   };
   
+
+  //Logout
+
+  export const logout= (req,res)=>{
+    res.cookie("token", "",
+    {expires:new Date(0) });
+    return res.sendStatus(200);
+  }
+
+export const profile = async (req, res) =>{
+const userFound= await userModel.findById(req.user.id)
+
+if(!userFound) return res.status(400).json({message: "Usuario no encontrado"});
+
+return res.json({
+  id: userFound._id,
+  firstname: userFound.firstname,
+  lastname:userFound.lastname,
+  email: userFound.email,
+  createdAt: userFound.createdAt,
+  updatedAt:userFound.updatedAt,
+})
+res.send("profile")
+}
