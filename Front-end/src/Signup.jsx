@@ -108,7 +108,7 @@ function Signup() {
             </div>
             <p className="text-end mt-2">
               Registro completo
-              <Link to="/" className="ms-2 link_color">
+              <Link to="/login" className="ms-2 link_color">
                 Iniciar Sesión
               </Link>
             </p>

@@ -10,7 +10,7 @@ lastname: z.string({
 email: z.string({
     required_error:"Debe ingresar un correo electronico"
 }).email({
-    message:"correo invalido"
+    message:"El email no es valido"
 }),
 password: z.string({
     required_error:"La constraseña es requerida"
@@ -23,7 +23,7 @@ export const loginSchema= z.object({
     email: z.string({
         required_error:"El e-mail es requerido",
     }).email({
-        message:"Correo invalido"
+        message:"El correo no es valido"
     }),
     password: z.string({
         required_error: "La contraseña es requerida",
