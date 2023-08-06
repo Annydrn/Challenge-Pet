@@ -5,7 +5,6 @@ import { AuthProvider } from "./context/AuthContext.jsx";
 import Servicios from "./components/page/Servicios";
 import SolicitudTareas from "./components/SolicitudTareas";
 import ProfilePage from "./components/page/ProfilePage";
-import Home from "./components/page/home";
 
 function App() {
   return (
@@ -13,9 +12,14 @@ function App() {
       <AuthProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />}></Route>
+            {/* RUTAS PUBLICAS DE LIBRE ACCESO */}
+            <Route path="/" element={<h1> home</h1>}></Route>
             <Route path="/signup" element={<Signup />}></Route>
             <Route path="/login" element={<Login />}></Route>
+
+
+            {/* RUTAS PRIVADAS SOLO PARA USUARIOS REGISTRADOS */}
+
             <Route
               path="/services"
               element={<Servicios/>}
