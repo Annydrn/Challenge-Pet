@@ -1,8 +1,21 @@
 import { Link } from "react-router-dom";
 import "./login.css";
 import videoBg from "./assets/videoBg.mp4";
+import { useForm } from "react-hook-form";
+import { useAuth } from "./context/AuthContext";
 
-const Login = () => {
+function Login() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm();
+  const {signin, errors:SigninErrors} = useAuth()
+
+  const onSubmit = handleSubmit((data) => {
+   signin(data);
+});
+
   return (
     <>
       <div className="video-fondo">
@@ -11,7 +24,15 @@ const Login = () => {
 
       <div className="login template d-flex justify-content-center align-items-center vh-100 ">
         <div className="form_container p-5 ">
-          <form>
+
+        {
+  SigninErrors && SigninErrors.map((error, i) => (
+    <div className="text-danger " key={i}>
+      {error}
+    </div>
+  ))
+}
+          <form onSubmit={onSubmit}>
             <h3 className="text-center mb-4 texto_titulo">¡Bienvenido!</h3>
             <div className="mb-2">
               <label htmlFor="email"> Email</label>
@@ -21,6 +42,10 @@ const Login = () => {
                 placeholder="  Escribe tu Email"
                 className="cuadro_texto"
               />
+                            {errors.email && (
+                <p className="text-warning">E-mail es requerido</p>
+              )}
+
             </div>
             <div className="mb-2">
               <label htmlFor="password"> Contraseña</label>
@@ -30,6 +55,10 @@ const Login = () => {
                 placeholder="  Escribe tu contraseña"
                 className="cuadro_texto"
               />
+                            {errors.password && (
+                <p className="text-warning">La contraseña es requerido</p>
+              )}
+
             </div>
             <div className="mb-2">
               <input
@@ -55,6 +84,6 @@ const Login = () => {
       </div>
     </>
   );
-};
-
+                            }
+                            
 export default Login;

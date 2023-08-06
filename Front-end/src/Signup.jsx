@@ -4,19 +4,22 @@ import "./signup.css";
 import { useForm } from "react-hook-form";
 import { useAuth } from "./context/AuthContext";
 import { useEffect } from "react";
- 
-function Signup (){
-  const { register, handleSubmit, formState:{errors} } = useForm();
-  const {signup, isAuthenticated, errors: signUpErrors}= useAuth();
-const navigate= useNavigate();
 
-useEffect(()=> {
-if (isAuthenticated)navigate ("/services")
-}, [isAuthenticated])
+function Signup() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm();
+  const { signup, isAuthenticated, errors: signUpErrors } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated) navigate("/services");
+  }, [isAuthenticated, navigate]);
 
   const onSubmit = handleSubmit(async (values) => {
-  signup(values)
-   
+    signup(values);
   });
   return (
     <>
@@ -26,12 +29,12 @@ if (isAuthenticated)navigate ("/services")
       <div className="login template d-flex justify-content-center align-items-center vh-100 ">
         <div className="form_container p-5 ">
         {
-            signUpErrors.map((error, i)=>(
-              <div className="text-danger p-2" key={i}>
-                {error}
-              </div>
-            ))
-          }
+  signUpErrors && signUpErrors.map((error, i) => (
+    <div key={i} className="text-danger">
+      {error}
+    </div>
+  ))
+}
 
           <form onSubmit={onSubmit}>
             <h3 className="text-center mb-4 texto-titulo">Crea tu cuenta</h3>
@@ -44,7 +47,7 @@ if (isAuthenticated)navigate ("/services")
                 className="cuadro_texto"
                 {...register("firstname", { required: true })}
               />
-              {errors.firstname && ( 
+              {errors.firstname && (
                 <p className="text-warning">Nombre es requerido</p>
               )}
             </div>
@@ -57,7 +60,7 @@ if (isAuthenticated)navigate ("/services")
                 className="cuadro_texto"
                 {...register("lastname", { required: true })}
               />
-               {errors.lastname && ( 
+              {errors.lastname && (
                 <p className="text-warning">Apellido es requerido</p>
               )}
             </div>
@@ -70,7 +73,7 @@ if (isAuthenticated)navigate ("/services")
                 className="cuadro_texto"
                 {...register("email", { required: true })}
               />
-               {errors.email && ( 
+              {errors.email && (
                 <p className="text-warning">E-mail es requerido</p>
               )}
             </div>
@@ -83,10 +86,9 @@ if (isAuthenticated)navigate ("/services")
                 className="cuadro_texto"
                 {...register("password", { required: true })}
               />
-                {errors.password && ( 
-                <p className="text-warning">La clave es requerido</p>
+              {errors.password && (
+                <p className="text-warning">La contraseña es requerido</p>
               )}
-
             </div>
             <div className="mb-2">
               <input
@@ -115,6 +117,6 @@ if (isAuthenticated)navigate ("/services")
       </div>
     </>
   );
-};
+}
 
 export default Signup;
