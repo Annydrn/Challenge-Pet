@@ -11,16 +11,16 @@ const Login = () => {
       </div>
       
       <div className="login template d-flex justify-content-center align-items-center vh-100 ">
-        <div className="form_container p-5  bg-white">
+        <div className="form_container p-5 ">
           <form>
-            <h3 className="text-center mb-4 texto-titulo">¡Bienvenido!</h3>
+            <h3 className="text-center mb-4 texto_titulo">¡Bienvenido!</h3>
             <div className="mb-2">
               <label htmlFor="email"> Email</label>
               <br />
               <input
                 type="email"
-                placeholder="Escribe tu Email"
-                className="for_details"
+                placeholder="  Escribe tu Email"
+                className="cuadro_texto"
               />
             </div>
             <div className="mb-2">
@@ -28,14 +28,14 @@ const Login = () => {
               <br />
               <input
                 type="password"
-                placeholder="Escribe tu contraseña"
-                className="for_details"
+                placeholder="  Escribe tu contraseña"
+                className="cuadro_texto"
               />
             </div>
             <div className="mb-2">
               <input
                 type="checkbox"
-                className="custom-control custom-checkbox"
+                className="custom-control custom-checkbox "
                 id="check"
               />
               <label htmlFor="check" className="custom-input-label ms-2">
@@ -47,7 +47,7 @@ const Login = () => {
             </div>
             <p className="text-end mt-2">
               No estas registrado?
-              <Link to="/signup" className="ms-2 link_color" >
+              <Link to="/signup" className="ms-2 link_color2" >
                 
                 Registrate
               </Link>

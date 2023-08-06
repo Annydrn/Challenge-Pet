@@ -1,24 +1,32 @@
 import { Link } from "react-router-dom"
-import fotoLogin from "../public/img/fotoLogin.jpg"
+import fotoBg from "../public/img/fotoBg.jpg"
 import "./signup.css"
+import {useForm} from "react-hook-form"
+import { registerRequest } from "./api/auth.js"
 
 const Signup = () => {
+  const {register, handleSubmit}= useForm()
   return (
     <>
      <div className="imagen-fondo">
-        <img src={fotoLogin}/>
+        <img src={fotoBg}/>
       </div>
       <div className="login template d-flex justify-content-center align-items-center vh-100 ">
-        <div className="form_container p-5  bg-white">
-          <form>
+        <div className="form_container p-5 ">
+        <form onSubmit={handleSubmit(async (values) => {
+  console.log(values);
+            const res = await registerRequest(values);
+            console.log(res)
+          })}>
             <h3 className="text-center mb-4 texto-titulo">Crea tu cuenta</h3>
             <div className="mb-2">
               <label htmlFor="firstname"> Nombre</label>
               <br />
               <input
                 type="text"
-                placeholder="Escribe tu nombre"
-                className="for_details"
+                placeholder="  Escribe tu nombre"
+                className="cuadro_texto"
+                {...register("firstname", { required: true})}
               />
             </div>
             <div className="mb-2">
@@ -26,8 +34,9 @@ const Signup = () => {
               <br />
               <input
                 type="text"
-                placeholder="Escribe tu apellido"
-                className="for_details"
+                placeholder="  Escribe tu apellido"
+                className="cuadro_texto"
+                {...register("lastname", { required: true})}
               />
             </div>
             <div className="mb-2">
@@ -35,8 +44,9 @@ const Signup = () => {
               <br />
               <input
                 type="email"
-                placeholder="Escribe tu Email"
-                className="for_details"
+                placeholder="  Escribe tu Email"
+                className="cuadro_texto"
+                {...register("email", { required: true})}
               />
             </div>
             <div className="mb-2">
@@ -44,8 +54,9 @@ const Signup = () => {
               <br />
               <input
                 type="password"
-                placeholder="Escribe tu contraseña"
-                className="for_details"
+                placeholder="  Escribe tu contraseña"
+                className="cuadro_texto"
+                {...register("password", { required: true})}
               />
             </div>
             <div className="mb-2">
@@ -59,7 +70,7 @@ const Signup = () => {
               </label>
             </div>
             <div className="d-grid">
-              <button className="btn-bg"> Entrar</button>
+              <button type="submit" className="btn-bg"> Entrar</button>
             </div>
             <p className="text-end mt-2">
               Registro completo

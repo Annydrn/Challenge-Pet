@@ -6,9 +6,10 @@ padding: 0;
 .form_container{
     width: 30%;
     border-radius:8%;
-box-shadow: 10px 8px 100px 8px rgb(179, 136, 10);
-border: 3px solid rgb(156, 152, 144);
-
+box-shadow: 0 8px 32px 0  rgb(127, 122, 109, 0.37);
+border:1px solid  rgb(127, 122, 109, 0.18);;
+background: rgba(252, 252, 252, 0.18);
+backdrop-filter: blur(30px);
 }
 
 .for_details{
@@ -39,7 +40,7 @@ img{
 
 }
 .texto-titulo{
-    color: #76756cbd;
+    color: rgb(255, 189, 24);
 }
 
 .btn-bg{
@@ -52,8 +53,8 @@ img{
 
 .link_color{
 font-weight: bold;
-    color: rgb(181, 144, 34);
-    outline: none;
+color: rgb(255, 189, 24);
+outline: none;
     font-size: 0.8em;
 }
 
