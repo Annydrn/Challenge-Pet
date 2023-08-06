@@ -7,9 +7,12 @@ import bcrypt from "bcryptjs";
 // SignUp
 export const signup = async (req, res) => {
   const { email, password, firstname, lastname } = req.body;
-  console.log(email, password, firstname, lastname);//
 
   try {
+
+    const userFound = await userModel.findOne({email})
+    if (userFound)return res.status(400).json(["El e-mail ya existe"]);
+
     const passwordHashs = await bcrypt.hash(password, 10); //encriptacion de la contaseña al usar hash para que sean aleatorios los caracteres
 
     const newUser = new userModel({

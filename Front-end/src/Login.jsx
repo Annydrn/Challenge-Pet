@@ -3,13 +3,12 @@ import "./login.css";
 import videoBg from "./assets/videoBg.mp4";
 
 const Login = () => {
-   
   return (
     <>
       <div className="video-fondo">
         <video src={videoBg} autoPlay loop muted />
       </div>
-      
+
       <div className="login template d-flex justify-content-center align-items-center vh-100 ">
         <div className="form_container p-5 ">
           <form>
@@ -47,8 +46,7 @@ const Login = () => {
             </div>
             <p className="text-end mt-2">
               No estas registrado?
-              <Link to="/signup" className="ms-2 link_color2" >
-                
+              <Link to="/signup" className="ms-2 link_color2">
                 Registrate
               </Link>
             </p>
