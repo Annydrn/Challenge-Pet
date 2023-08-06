@@ -2,6 +2,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./Login";
 import Signup from "./Signup";
 import { AuthProvider } from "./context/AuthContext.jsx";
+import Servicios from "./components/page/Servicios";
+import SolicitudTareas from "./components/SolicitudTareas";
+import ProfilePage from "./components/page/ProfilePage";
+import Home from "./components/page/home";
 
 function App() {
   return (
@@ -9,24 +13,24 @@ function App() {
       <AuthProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Login />}></Route>
+            <Route path="/" element={<Home />}></Route>
             <Route path="/signup" element={<Signup />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route
               path="/services"
-              element={<h1>pagina de servicios </h1>}
+              element={<Servicios/>}
             ></Route>
             <Route
-              path="/add-service"
-              element={<h1>añadir servicios </h1>}
+              path="/service"
+              element={<SolicitudTareas/>}
             ></Route>
             <Route
               path="/service/:id"
-              element={<h1> actualizar servicio</h1>}
+              element={<SolicitudTareas/>}
             ></Route>
             <Route
               path="/profile"
-              element={<h1>pagina perfil de usuario </h1>}
+              element={<ProfilePage/>}
             ></Route>
           </Routes>
         </BrowserRouter>
