@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import fotoBg from "../public/img/fotoBg.jpg"
+import fotoBg from "/img/fotoBg.jpg"
 import "./signup.css"
 import {useForm} from "react-hook-form"
 import { registerRequest } from "./api/auth.js"
