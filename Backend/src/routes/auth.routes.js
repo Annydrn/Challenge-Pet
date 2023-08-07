@@ -10,14 +10,12 @@ import { authRequired } from "../middlewares/validateToken.js";
 import { validateSchema } from "../middlewares/validator.middleware.js";
 import { loginSchema, signUpSchema } from "../schemas/auth.schema.js";
 
-
 const router = Router();
 
 router.post("/signup", validateSchema(signUpSchema), signup);
-router.post("/login",validateSchema(loginSchema) ,login);
+router.post("/login", validateSchema(loginSchema), login);
 router.post("/logout", logout);
 router.get("/verify", verifyToken);
-router.get("/profile",authRequired, profile);
-
+router.get("/profile", authRequired, profile);
 
 export default router;

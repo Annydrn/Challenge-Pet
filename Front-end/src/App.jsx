@@ -12,27 +12,28 @@ function App() {
   return (
     <>
       <AuthProvider>
-      <ServiceProvider>
-      <BrowserRouter>
-          <Routes>
-            {/* RUTAS PUBLICAS DE LIBRE ACCESO */}
-            <Route path="/" element={<h1> home</h1>}></Route>
-            <Route path="/signup" element={<Signup />}></Route>
-            <Route path="/login" element={<Login />}></Route>
+        <ServiceProvider>
+          <BrowserRouter>
+            <Routes>
+              {/* RUTAS PUBLICAS DE LIBRE ACCESO */}
+              <Route path="/" element={<h1> home</h1>}></Route>
+              <Route path="/signup" element={<Signup />}></Route>
+              <Route path="/login" element={<Login />}></Route>
 
-            {/* RUTAS PRIVADAS SOLO PARA USUARIOS REGISTRADOS */}
+              {/* RUTAS PRIVADAS SOLO PARA USUARIOS REGISTRADOS */}
 
-      <Route element={<ProtectedRoute/>}>
-      
-      <Route path="/services" element={<Servicios />}></Route>
-            <Route path="/service" element={<SolicitudTareas />}></Route>
-            <Route path="/service/:id" element={<SolicitudTareas />}></Route>
-            <Route path="/profile" element={<ProfilePage />}></Route>
-      </Route>
-
-          </Routes>
-        </BrowserRouter>
-      </ServiceProvider>
+              <Route element={<ProtectedRoute />}>
+                <Route path="/services" element={<Servicios />}></Route>
+                <Route path="/service" element={<SolicitudTareas />}></Route>
+                <Route
+                  path="/service/:id"
+                  element={<SolicitudTareas />}
+                ></Route>
+                <Route path="/profile" element={<ProfilePage />}></Route>
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </ServiceProvider>
       </AuthProvider>
     </>
   );
