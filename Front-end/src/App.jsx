@@ -21,6 +21,7 @@ function App() {
             {/* RUTAS PRIVADAS SOLO PARA USUARIOS REGISTRADOS */}
 
       <Route element={<ProtectedRoute/>}>
+      
       <Route path="/services" element={<Servicios />}></Route>
             <Route path="/service" element={<SolicitudTareas />}></Route>
             <Route path="/service/:id" element={<SolicitudTareas />}></Route>

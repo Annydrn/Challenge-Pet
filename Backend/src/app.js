@@ -10,6 +10,7 @@ const app= express();
 
 app.use(cors({
     origin: "http://localhost:5173",
+    credentials:true
 }));
 app.use(morgan("dev"));
 app.use(express.json())//lo instale para que el req body lo tansforme a json y se pueda mostrar
