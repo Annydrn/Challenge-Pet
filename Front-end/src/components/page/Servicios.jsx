@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useService} from "../../context/ServiceContext.jsx";
 
-const Servicios = () => {
+function Servicios (){
   const { getServices, service } = useService();
 
   useEffect(() => {
-    getServices();
+    getServices()
   }, []);
 
   if(service.length===0) return <h1>No haz pedido ningun  servicio</h1>
@@ -14,7 +14,7 @@ const Servicios = () => {
     <div>
       {service.map((service) => (
         <div key={service._id}>
-          <h1>{service.servicios}</h1>
+          <h1>{service.servicio}</h1>
           <p>{service.mascota}</p>
           <p>{service.detalles}</p>
         </div>

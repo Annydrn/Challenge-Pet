@@ -30,7 +30,7 @@ export function ServiceProvider({ children }) {
   };
 
   return (
-    <ServiceContext.Provider value={{ service, createService, getServices }}>
+    <ServiceContext.Provider value={{ service, createService, getServices, }}>
       {children}
     </ServiceContext.Provider>
   );
