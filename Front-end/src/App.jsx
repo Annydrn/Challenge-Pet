@@ -7,6 +7,7 @@ import SolicitudTareas from "./components/SolicitudTareas";
 import ProfilePage from "./components/page/ProfilePage";
 import ProtectedRoute from "./ProtectedRoute";
 import { ServiceProvider } from "./context/ServiceContext";
+import NavbarPage from "./components/Navbar"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <AuthProvider>
         <ServiceProvider>
           <BrowserRouter>
+          <NavbarPage/>
             <Routes>
               {/* RUTAS PUBLICAS DE LIBRE ACCESO */}
               <Route path="/" element={<h1> home</h1>}></Route>

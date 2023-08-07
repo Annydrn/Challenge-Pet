@@ -17,7 +17,7 @@ export function ServiceProvider({ children }) {
   const getServices = async () => {
     try {
       const res = await getServicesRequest();
-      getServices(res.data);
+      setService(res.data);
 
     } catch (error) {
       console.log(error);

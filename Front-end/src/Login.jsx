@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 import videoBg from "./assets/videoBg.mp4";
 import { useForm } from "react-hook-form";
 import { useAuth } from "./context/AuthContext";
+import { useEffect } from "react";
 
 function Login() {
   const {
@@ -10,11 +11,16 @@ function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const {signin, errors:SigninErrors} = useAuth()
+  const {signin, errors:SigninErrors, isAuthenticated} = useAuth()
+  const navigate= useNavigate()
 
   const onSubmit = handleSubmit((data) => {
    signin(data);
 });
+
+useEffect(()=>{
+if(isAuthenticated) navigate("/services")
+}, [isAuthenticated])
 
   return (
     <>
