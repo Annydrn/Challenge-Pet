@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { createServiceRequest, getServiceRequest } from "../api/service.js";
+import { createServiceRequest, getServicesRequest } from "../api/service.js";
 
 const ServiceContext = createContext();
 
@@ -15,8 +15,13 @@ export function ServiceProvider({ children }) {
   const [service, setService] = useState([]);
 
   const getServices = async () => {
-    const res = await getServiceRequest();
-    console.log(res);
+    try {
+      const res = await getServicesRequest();
+      getServices(res.data);
+
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const createService = async (service) => {
