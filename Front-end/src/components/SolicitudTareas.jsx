@@ -1,9 +1,12 @@
 import { useForm } from "react-hook-form";
+import { useService } from "../context/ServiceContext.jsx";
 
 const SolicitudTareas = () => {
   const { register, handleSubmit } = useForm();
+  const { createService } = useService();
+
   const onSubmit = handleSubmit((data) => {
-    console.log(data);
+    createService(data);
   });
 
   return (
@@ -21,7 +24,6 @@ const SolicitudTareas = () => {
           placeholder="Detalles que nos quieras informar"
           {...register("detalles")}
           className="w-100 bg-light p-2 rounded"
-
         ></textarea>
         <button>Guardar</button>
       </form>
