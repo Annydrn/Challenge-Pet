@@ -19,6 +19,15 @@ const SolicitudTareas = () => {
           className="w-100 bg-warning  p-2 rounded"
           autoFocus
         />
+
+<input
+          type="text"
+          placeholder="Mascota"
+          {...register("mascota")}
+          className="w-100 bg-warning  p-2 rounded"
+          autoFocus
+        />
+        
         <textarea
           rows="3"
           placeholder="Detalles que nos quieras informar"
