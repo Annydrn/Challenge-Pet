@@ -7,5 +7,8 @@ export const createServiceSchema= z.object({
         mascota: z.string({
             required_error:"Ingrese el nombre de su mascota",
         }),
+        detalles:z.string({
+            required_error:"Ingrese detalles que nos ayuden a dar un mejor servicio"
+        }),
     fecha: z.string().datetime().optional(),
 });

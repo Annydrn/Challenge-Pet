@@ -8,12 +8,13 @@ export const getServices = async (req, res) => {
   res.json(services);
 };
 export const createService = async (req, res) => {
-  const { servicio, mascota, fecha } = req.body;
+  const { servicio, mascota, fecha,detalles } = req.body;
   console.log(req.user); //clg para verificar en terminal el id del usuario
   const newService = new Service({
     servicio,
     mascota,
     fecha,
+    detalles,
     user: req.user.id,
   });
   const savedService = await newService.save();
