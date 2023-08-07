@@ -6,7 +6,7 @@ import bcrypt from "bcryptjs";
 
 // SignUp
 export const signup = async (req, res) => {
-  const { email, password, } = req.body;
+  const { email, password,firstname, lastname } = req.body;
 
   try {
 
