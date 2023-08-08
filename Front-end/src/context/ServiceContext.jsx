@@ -47,7 +47,8 @@ export function ServiceProvider({ children }) {
 const getService= async(id)=>{
 try {
   const res= await getServiceRequest(id);
-  return(res.date)
+console.log(res)
+return(res)
 } catch (error) {
   console.log(error)
 }

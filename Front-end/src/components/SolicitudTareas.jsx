@@ -12,11 +12,11 @@ const SolicitudTareas = () => {
   useEffect(() => {
     async function loadService() {
       if (params.id) {
-        const service = await getService(params.id);
-        console.log(service);
-        setValue("servicio", service.servicio);
-        setValue("mascota", service.mascota);
-        setValue("detalles", service.detalles);
+        const {data} = await getService(params.id);
+        console.log(data);
+        setValue("servicio", data.servicio);
+        setValue("mascota", data.mascota);
+        setValue("detalles", data.detalles);
       }
     }
     loadService();

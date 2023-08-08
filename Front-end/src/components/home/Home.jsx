@@ -3,11 +3,12 @@ import "./home.css"
 
 const Home = () => {
   return (
-    <>
+    
+     <div className="contenedor_presentacion">
       <DarkVariantExample />
       <br />
-      <div className="contenedor_presentacion">
-      <p className="texto_presentacion"> 
+     
+      <p className="texto_presentacion px-5 py-3 text-center text-ligth"> 
         Estamos comprometidos con brindar los mejores
         servicios para satisfacer todas las necesidades de tus queridas
         mascotas. Desde cuidados personalizados hasta alimentación balanceada,
@@ -17,10 +18,10 @@ const Home = () => {
         proporcionar un entorno seguro y enriquecedor para tus mascotas, donde
         cada caricia y ladrido se traduce en una experiencia memorable. 
       </p>
-
+<br />
       </div>
 
-    </>
+    
   );
 };
 

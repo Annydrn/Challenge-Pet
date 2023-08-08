@@ -1,12 +1,12 @@
 
 const Footer = () => {
   return (
-    <footer className="text-center text-white" style={{ backgroundColor: "#f1f1f1" }}>
+    <footer className="text-center text-white" style={{ backgroundColor: "#e5890a" }}>
     
 
-      <div className="text-center text-dark p-3" style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}>
-        © 2023 Copyright:
-        <a className="text-dark" href="https://andreaDesign.com/">Andrea-Design</a>
+      <div className="text-center text-ligth p-3" style={{}}>
+        © 2023 Copyright:Andrea-Design
+       
       </div>
     </footer>
   );

@@ -1,7 +1,17 @@
 .texto_presentacion{
-    padding: 15px;
+        width: 100%;
+        margin-left: 5%;
+        margin-right: 5%;
+        border-radius: 30px;
+        box-shadow: 0 8px 32px 0 rgb(127, 122, 109, 0.37);
+        border: 1px solid rgb(127, 122, 109, 0.18);
+        background: rgba(255, 152, 17, 0.1);
+        backdrop-filter: blur(10px);
+      
+
 }
 
 .contenedor_presentacion{
-    
+    background-image: url("../../assets/img/pexels-la-miko-3616764.jpg");
+    background-size: cover;
 }
