@@ -6,7 +6,7 @@ const Home = () => {
     <>
       <DarkVariantExample />
       <br />
-      
+      <div className="contenedor_presentacion">
       <p className="texto_presentacion"> 
         Estamos comprometidos con brindar los mejores
         servicios para satisfacer todas las necesidades de tus queridas
@@ -17,6 +17,9 @@ const Home = () => {
         proporcionar un entorno seguro y enriquecedor para tus mascotas, donde
         cada caricia y ladrido se traduce en una experiencia memorable. 
       </p>
+
+      </div>
+
     </>
   );
 };

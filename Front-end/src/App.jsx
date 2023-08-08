@@ -9,6 +9,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import { ServiceProvider } from "./context/ServiceContext";
 import NavbarPage from "./components/Navbar"
 import Home from "./components/home/Home";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
               </Route>
             </Routes>
  </main>
+ <Footer/>
           </BrowserRouter>
         </ServiceProvider>
       </AuthProvider>
