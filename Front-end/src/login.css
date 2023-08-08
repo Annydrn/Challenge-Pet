@@ -55,6 +55,9 @@ video {
   outline: none;
   font-size: 0.8em;
 }
+section{
+  position: relative;
+}
 
 @media screen and (max-width: 1000px) {
   .form_container {

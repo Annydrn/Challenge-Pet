@@ -1,12 +1,34 @@
 import { useForm } from "react-hook-form";
 import { useService } from "../context/ServiceContext.jsx";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 const SolicitudTareas = () => {
-  const { register, handleSubmit } = useForm();
-  const { createService } = useService();
+  const { register, handleSubmit, setValue } = useForm();
+  const { createService, getService, updateService } = useService();
+  const navigate = useNavigate();
+  const params = useParams();
+
+  useEffect(() => {
+    async function loadService() {
+      if (params.id) {
+        const service = await getService(params.id);
+        console.log(service);
+        setValue("servicio", service.servicio);
+        setValue("mascota", service.mascota);
+        setValue("detalles", service.detalles);
+      }
+    }
+    loadService();
+  }, []);
 
   const onSubmit = handleSubmit((data) => {
-    createService(data);
+    if (params.id) {
+      updateService(params.id, data);
+    } else {
+      createService(data);
+    }
+    navigate("/services");
   });
 
   return (

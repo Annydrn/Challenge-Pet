@@ -5,6 +5,6 @@ export const getServicesRequest = () => axios.get("/services");
 export const getServiceRequest = (id) => axios.get(`/service/${id}`);
 export const createServiceRequest = (service) =>
   axios.post("/service", service);
-export const updateServiceRequest = (service) =>
-  axios.put(`/service/${service._id}`, service);
+export const updateServiceRequest = (id, service) =>
+  axios.put(`/service/${id}`, service);
 export const deleteServiceRequest = (id) => axios.delete(`/service/${id}`);

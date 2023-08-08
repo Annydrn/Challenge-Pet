@@ -22,7 +22,7 @@ function Signup() {
     signup(values);
   });
   return (
-    <>
+    <section>
       <div className="imagen-fondo">
         <img src={fotoBg} />
       </div>
@@ -115,7 +115,7 @@ function Signup() {
           </form>
         </div>
       </div>
-    </>
+    </section>
   );
 }
 

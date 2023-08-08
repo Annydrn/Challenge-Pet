@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useService} from "../../context/ServiceContext.jsx";
+import ServiceCard from "../ServiceCard.jsx";
 
 function Servicios (){
   const { getServices, service } = useService();
@@ -13,14 +14,10 @@ function Servicios (){
   return (
     <div>
       {service.map((service) => (
-        <div key={service._id}>
-          <h1>{service.servicio}</h1>
-          <p>{service.mascota}</p>
-          <p>{service.detalles}</p>
-        </div>
+        <ServiceCard service={service} key={service._id}/>
       ))}
     </div>
   );
-};
+}
 
 export default Servicios;

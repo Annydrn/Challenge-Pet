@@ -1,5 +1,11 @@
 import { createContext, useContext, useState } from "react";
-import { createServiceRequest, getServicesRequest } from "../api/service.js";
+import {
+  createServiceRequest,
+  getServicesRequest,
+  deleteServiceRequest,
+    getServiceRequest,
+    updateServiceRequest,
+} from "../api/service.js";
 
 const ServiceContext = createContext();
 
@@ -18,7 +24,6 @@ export function ServiceProvider({ children }) {
     try {
       const res = await getServicesRequest();
       setService(res.data);
-
     } catch (error) {
       console.log(error);
     }
@@ -29,8 +34,41 @@ export function ServiceProvider({ children }) {
     console.log(res);
   };
 
+  const deleteService = async (id) => {
+    try {
+      const res = await deleteServiceRequest(id);
+      if (res.status === 204)
+        setService(service.filter((service) => service._id != id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+const getService= async(id)=>{
+try {
+  const res= await getServiceRequest(id);
+  return(res.date)
+} catch (error) {
+  console.log(error)
+}
+};
+
+const updateService = async (id, service)=> {
+try {
+  const res= await updateServiceRequest(id, service)
+  console.log(res.data)
+} catch (error) {
+  console.log(error)
+}
+
+}
+
+
+
   return (
-    <ServiceContext.Provider value={{ service, createService, getServices, }}>
+    <ServiceContext.Provider
+      value={{ service, createService, getServices, deleteService, getService, updateService ,}}
+    >
       {children}
     </ServiceContext.Provider>
   );

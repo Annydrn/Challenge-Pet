@@ -8,6 +8,7 @@ import ProfilePage from "./components/page/ProfilePage";
 import ProtectedRoute from "./ProtectedRoute";
 import { ServiceProvider } from "./context/ServiceContext";
 import NavbarPage from "./components/Navbar"
+import Home from "./components/Home";
 
 function App() {
   return (
@@ -15,10 +16,12 @@ function App() {
       <AuthProvider>
         <ServiceProvider>
           <BrowserRouter>
-          <NavbarPage/>
+ <main className="container ">
+
+ <NavbarPage/>
             <Routes>
               {/* RUTAS PUBLICAS DE LIBRE ACCESO */}
-              <Route path="/" element={<h1> home</h1>}></Route>
+              <Route path="/" element={<Home/>}></Route>
               <Route path="/signup" element={<Signup />}></Route>
               <Route path="/login" element={<Login />}></Route>
 
@@ -34,6 +37,7 @@ function App() {
                 <Route path="/profile" element={<ProfilePage />}></Route>
               </Route>
             </Routes>
+ </main>
           </BrowserRouter>
         </ServiceProvider>
       </AuthProvider>

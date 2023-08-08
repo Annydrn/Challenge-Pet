@@ -23,7 +23,7 @@ if(isAuthenticated) navigate("/services")
 }, [isAuthenticated])
 
   return (
-    <>
+    <section>
       <div className="video-fondo">
         <video src={videoBg} autoPlay loop muted />
       </div>
@@ -83,7 +83,7 @@ if(isAuthenticated) navigate("/services")
           </form>
         </div>
       </div>
-    </>
+    </section>
   );
 }
 
