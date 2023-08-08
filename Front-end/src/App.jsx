@@ -8,7 +8,7 @@ import ProfilePage from "./components/page/ProfilePage";
 import ProtectedRoute from "./ProtectedRoute";
 import { ServiceProvider } from "./context/ServiceContext";
 import NavbarPage from "./components/Navbar"
-import Home from "./components/Home";
+import Home from "./components/home/Home";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
       <AuthProvider>
         <ServiceProvider>
           <BrowserRouter>
- <main className="container ">
+ <main>
 
  <NavbarPage/>
             <Routes>
