@@ -5,7 +5,7 @@ const Footer = () => {
     
 
       <div className="text-center text-ligth p-3" style={{}}>
-        © 2023 Copyright:Andrea-Design
+        © 2023 Copyright AppPets Design 
        
       </div>
     </footer>
